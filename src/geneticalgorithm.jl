@@ -7,9 +7,6 @@ initpopulation(f, n=100) = map(_ -> f, 1:n)
 
 populationbest(P⃗::Vector) = argmin(g -> g.loss, P⃗)
 
-fitnessevaluation(genome::NASCTY.Genome) =
-    genome.loss == Inf32 ? NASCTY.fakefitnessevaluation(genome) : genome.loss
-
 evaluatepopulation(P⃗::Vector, f::Function)::Vector = map(g -> NASCTY.Genome(g, f(g)), P⃗)
 
 """

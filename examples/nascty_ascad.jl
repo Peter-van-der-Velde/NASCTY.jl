@@ -1,8 +1,8 @@
 #!/usr/bin/env -S julia --project=./
 
 # This is a script for running NASCTY.jl on the fixed key dataset.
-using CUDA
-CUDA.set_runtime_version!(; local_toolkit=true)
+# using CUDA
+# CUDA.set_runtime_version!(; local_toolkit=true)
 # using CUDA # for  NVIDIA CUDA Support.
 # using cuDNN
 # using AMDGPU # for AMD GPU ROCM Support.
@@ -76,4 +76,6 @@ const BATCHSIZE = hyperparameters.batch_size |> first
 training_data = (D_train, K_train) |> Flux.gpu
 train_loader = Flux.DataLoader(training_data, batchsize = BATCHSIZE, shuffle = true)
 
-NASCTY.nascty(hyperparameters, training_data, training_data)
+validation_data = (D_val, K_val) |> Flux.gpu
+
+NASCTY.nascty(hyperparameters, train_loader, validation_data)

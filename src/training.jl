@@ -3,7 +3,10 @@ import Flux
 # include("hyperparameters.jl")
 # include("genome.jl")
 
-function fitnessevaluation(hyperparameters::HyperParameters, genome::Genome, training_data, validationtraces, validationlabels, tracelength)
+function fitnessevaluation(hyperparameters::HyperParameters, genome::Genome, training_data, validation_data, tracelength)
+    if genome.loss != Inf32
+        return genome.loss
+    end
 
     model = genome |> g -> phenotype(g, tracelength) |> Flux.gpu
 	opt = Flux.setup(Flux.Adam(5e-3), model)
@@ -13,7 +16,7 @@ function fitnessevaluation(hyperparameters::HyperParameters, genome::Genome, tra
 		Flux.train!(loss, model, training_data, opt)
 	end
 
-	fitness = loss(model, validationtraces, validationlabels)
+	fitness = loss(model, validation_data[1], validation_data[2])
 
 	return fitness
 end

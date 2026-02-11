@@ -44,11 +44,13 @@ export produceoffspring
 
 function nascty(hyperparameters::HyperParameters, training_data, validation_data, output_path="./$(now())_NASCTY.jld2")
     @info "Initialising population..."
-    INPUTSIZE, _ = size(training_data |> first)
-    population = initpopulation(NASCTY.randomgenome(hyperparameters, INPUTSIZE), hyperparameters.population_size)
+    inputsize, _ = size(training_data |> first |> first)
+    population = initpopulation(NASCTY.randomgenome(hyperparameters, inputsize), hyperparameters.population_size)
 
     @info "Evaluate initial population gen 0."
-    population = evaluatepopulation(population, fitnessevaluation)
+    fitnessfunction(g::Genome) = fitnessevaluation(hyperparameters, g, training_data, validation_data, inputsize)
+
+    population = evaluatepopulation(population, fitnessfunction)
 
     populations = [population] # the list of populations for each generation
 
@@ -58,13 +60,13 @@ function nascty(hyperparameters::HyperParameters, training_data, validation_data
 
     @showprogress for gen in 1:hyperparameters.max_generation
         # @info "evaluating $gen..."
-        sleep(0.25)
+        population = evaluatepopulation(population, fitnessfunction)
 
         # @info "Selecting parents..."
         parents = tournamentselection(population, parent_size, hyperparameters.tournament_size)
 
         # @info "Creating offspring..."
-        offspring = produceoffspring(hyperparameters, parents, offspring_size, INPUTSIZE)
+        offspring = produceoffspring(hyperparameters, parents, offspring_size, inputsize)
 
         # @info "Replace existing population..."
         population = [parents; offspring]
