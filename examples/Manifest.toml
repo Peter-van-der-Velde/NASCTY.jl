@@ -1,0 +1,8 @@
+julia_version = "1.12.1"
+manifest_format = "2.0"
+project_hash = "0da3358053a3903483857576e653758625951a56"
+
+# [[deps.NASCTY]]
+# path = "../"
+# uuid = "c29c32f2-7981-4ec5-983e-5815d80f0b55"
+# version = "1.0.0-DEV"

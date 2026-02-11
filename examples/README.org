@@ -1,0 +1,29 @@
+#+title: Readme
+
+This directory contains a few files, documents, and programs to help you get started with the NASCTY.jl algorithm.
+The directory structure in front of you should look something like:
+
+#+BEGIN_SRC shell :exports results :results raw :eval no-export
+tree
+#+END_SRC
+
+#+RESULTS:
+.
+├── data
+│   ├── ASCAD_data.zip
+│   └── README.org
+├── nascty_ascad.jl
+└── README.org
+
+2 directories, 4 files
+.
+├── nascty_ascad.jl
+└── README.org
+
+1 directory, 2 files
+
+
+This directory contains an example program nascty_ascad.jl that runs the NASCTY.jl algorithm on the existing fixed key ASCAD data set.
+Accompanying it is a document (nascty_ascad.org) explaining the steps in the algorithm.
+
+Additionally, the data subdirectory should contain either the ASCAD data itself or the instructions on how to get the necessary data.

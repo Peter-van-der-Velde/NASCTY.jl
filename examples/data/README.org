@@ -1,0 +1,58 @@
+#+title: Readme
+
+The ASCAD data used by NASCTY_ASCAD.jl has been sourced from the [[https://github.com/ANSSI-FR/ASCAD/tree/master][ANSSI-FR ASCAD]] repository.
+For this research use has been made of the ATMEGA8515 AES fixed key set traces database.
+This database has been made available to us in the HDF5 file format.
+
+Downloading data can be done with:
+#+BEGIN_SRC shell :exports code :results raw :eval no-export
+wget --no-clobber https://www.data.gouv.fr/api/1/datasets/r/e7ab6f9e-79bf-431f-a5ed-faf0ebe9b08e -O ASCAD_data.zip
+#+END_SRC
+
+Then unzip the data
+#+BEGIN_SRC shell :exports code :results raw :eval no-export
+unzip ASCAD_data.zip
+#+END_SRC
+
+#+RESULTS:
+Archive:  ASCAD_data.zip
+   creating: ASCAD_data/
+   creating: ASCAD_data/ASCAD_databases/
+  inflating: ASCAD_data/ASCAD_databases/ASCAD.h5
+  inflating: ASCAD_data/ASCAD_databases/ASCAD_desync100.h5
+  inflating: ASCAD_data/ASCAD_databases/ASCAD_desync50.h5
+  inflating: ASCAD_data/ASCAD_databases/ATMega8515_raw_traces.h5
+   creating: ASCAD_data/ASCAD_trained_models/
+  inflating: ASCAD_data/ASCAD_trained_models/cnn_best_ascad_desync0_epochs75_classes256_batchsize200.h5
+  inflating: ASCAD_data/ASCAD_trained_models/cnn_best_ascad_desync100_epochs75_classes256_batchsize200.h5
+  inflating: ASCAD_data/ASCAD_trained_models/cnn_best_ascad_desync50_epochs75_classes256_batchsize200.h5
+  inflating: ASCAD_data/ASCAD_trained_models/mlp_best_ascad_desync0_node200_layernb6_epochs200_classes256_batchsize100.h5
+  inflating: ASCAD_data/ASCAD_trained_models/mlp_best_ascad_desync100_node200_layernb6_epochs200_classes256_batchsize100.h5
+  inflating: ASCAD_data/ASCAD_trained_models/mlp_best_ascad_desync50_node200_layernb6_epochs200_classes256_batchsize100.h5
+
+After that the expected data tree for input should look like the following:
+#+BEGIN_SRC shell :exports results :results raw :eval no-export :wrap EXAMPLE
+tree
+#+END_SRC
+
+#+RESULTS:
+#+begin_EXAMPLE
+.
+├── ASCAD_data
+│   ├── ASCAD_databases
+│   │   ├── ASCAD_desync100.h5
+│   │   ├── ASCAD_desync50.h5
+│   │   ├── ASCAD.h5
+│   │   └── ATMega8515_raw_traces.h5
+│   └── ASCAD_trained_models
+│       ├── cnn_best_ascad_desync0_epochs75_classes256_batchsize200.h5
+│       ├── cnn_best_ascad_desync100_epochs75_classes256_batchsize200.h5
+│       ├── cnn_best_ascad_desync50_epochs75_classes256_batchsize200.h5
+│       ├── mlp_best_ascad_desync0_node200_layernb6_epochs200_classes256_batchsize100.h5
+│       ├── mlp_best_ascad_desync100_node200_layernb6_epochs200_classes256_batchsize100.h5
+│       └── mlp_best_ascad_desync50_node200_layernb6_epochs200_classes256_batchsize100.h5
+├── ASCAD_data.zip
+└── README.org
+
+4 directories, 12 files
+#+end_EXAMPLE
