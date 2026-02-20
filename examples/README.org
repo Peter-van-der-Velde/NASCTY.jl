@@ -3,27 +3,34 @@
 This directory contains a few files, documents, and programs to help you get started with the NASCTY.jl algorithm.
 The directory structure in front of you should look something like:
 
-#+BEGIN_SRC shell :exports results :results raw :eval no-export
-tree
+#+BEGIN_SRC shell :exports results :results raw :eval no-export :wrap EXAMPLE
+tree -L 2
 #+END_SRC
 
 #+RESULTS:
+#+begin_EXAMPLE
 .
 ├── data
+│   ├── ASCAD_data
 │   ├── ASCAD_data.zip
 │   └── README.org
+├── instantiate.jl
+├── Manifest.toml
 ├── nascty_ascad.jl
+├── Project.toml
 └── README.org
 
-2 directories, 4 files
-.
-├── nascty_ascad.jl
-└── README.org
-
-1 directory, 2 files
-
+3 directories, 10 files
+#+end_EXAMPLE
 
 This directory contains an example program nascty_ascad.jl that runs the NASCTY.jl algorithm on the existing fixed key ASCAD data set.
 Accompanying it is a document (nascty_ascad.org) explaining the steps in the algorithm.
 
 Additionally, the data subdirectory should contain either the ASCAD data itself or the instructions on how to get the necessary data.
+
+To run the example program on the ASCAD dataset do:
+#+begin_src shell :exports code :results raw :eval :no-export
+./nascty_ascad.jl ./data/ASCAD_data/ASCAD_databases/ASCAD.h5
+#+end_src
+
+To train and evaluate designs using a different GPU framework of choice edit the first few lines of the program.

@@ -1,10 +1,10 @@
-#!/usr/bin/env -S julia --project=./
+#!/usr/bin/env -S julia --project=./ --threads auto
 
 # This is a script for running NASCTY.jl on the fixed key dataset.
-# using CUDA
-# CUDA.set_runtime_version!(; local_toolkit=true)
+using CUDA
+CUDA.set_runtime_version!(; local_toolkit=true)
 # using CUDA # for  NVIDIA CUDA Support.
-# using cuDNN
+using cuDNN
 # using AMDGPU # for AMD GPU ROCM Support.
 # using Metal # for Apple Metal GPU Support. (Experimental)
 # using oneAPI # for Intel oneAPI GPU Support. (Experimental)
