@@ -1,0 +1,108 @@
+#+TITLE: NASCTY.jl
+
+[[https://github.com/Peter-van-der-Velde/NASCTY.jl/actions/workflows/CI.yml/badge.svg?branch=main][Build Status]]
+
+*NASCTY.jl* is a Julia library for breaking cryptographic targets using Side-Channel Analysis (SCA)
+It implements a neural architecture search (NAS) strategy based on a genetic algorithm, tailored for side-channel analysis.
+It is based upon the research: /Neuroevolution to Attack Side-Channel Traces Yielding convolutional neural networks/ (NASCTY) [1].
+
+Project goals:
+- Easily adapt and configure the search to your side-channel analysis dataset;
+- Be a simple to understand implementation of neural architecture search for the SCA domain.
+- Give clear actionable insights into the search results.
+
+#+CAPTION: A neural architecture search in progress on the ASCAD dataset.
+# TODO: insert gif or image of a search on ASCAD.
+
+* Table of Contents
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+#+TOC: headlines 2
+
+* Installation
+Requirements:
+- Julia >= 1.12
+
+Install via the Julia REPL (press ~]~ to enter Pkg mode).
+Installing the stable version can be done with:
+#+BEGIN_SRC julia :eval noeval
+pkg> add NASCTY
+#+END_SRC
+
+As our latest commit this is not yet an option, if you wish access to the library already, an alternative route to the latest development version can be gained by:
+#+BEGIN_SRC julia :eval noeval
+pkg> add https://github.com/Peter-van-der-Velde/NASCTY.jl
+#+END_SRC
+
+* Usage
+To start a neural architecture search on your side-channel analysis dataset, load your data and initialise the hyperparameters:
+#+BEGIN_SRC julia :eval noeval
+import NASCTY import Flux
+
+@info "Setting NASCTY hyperparameters" hyperparameters =
+NASCTY.NASCTYGENOMEHYPERPARAMETERS()
+
+@info "Starting neural architecture search..." generations =
+NASCTY.nascty(hyperparameters, trainingdataloader, validationdata)
+
+@info "Finished neural architecture search..." bestgenomes = generations .|>
+generation -> argmin(g -> g.loss, generation) bestgenome = argmin(g -> g.loss,
+bestgenomes)
+
+@info "The best genome found is:" bestgenome
+#+END_SRC
+
+For detailed walkthroughs, please visit the [[file:examples/][examples directory]]
+and its accompanying [[file:examples/README.org][README.org]] for more information.
+
+* How it works
+TODO:
+
+* Benchmarks
+
+#+CAPTION: Required traces to obtain mean key rank 0 ($T_{GE0}$) and model parameter counts on the synchronized fixed-key ASCAD [2] dataset.
+#+NAME: tbl:ascadhyperparameter0
+| Model              | Type     | T_GE0 | Parameters |
+|--------------------+----------+-------+------------|
+| ASCAD [2]          | MLP      |   410 | 393 936    |
+| ASCAD [2]          | CNN      |   480 | 66 652 444 |
+| AutoSCA [3]        | MLP      |   129 | 478 656    |
+| AutoSCA [3]        | CNN      |   158 | 54 752     |
+| Zaid et al. [4]    | CNN      |   191 | 16 960     |
+| Wouters et al. [5] | CNN      |  ≈200 | 6 436      |
+| MetaQNN [6]        | CNN      |   202 | 79 439     |
+| MetaQNN [6]        | CNN      |   242 | 1 282      |
+| InfoNEAT [7]       | InfoNEAT |   130 | 15 107     |
+| NASCTY [1]         | CNN      |   314 | 10 470     |
+| NASCTY.jl†         | MLP      |   150 | 7 953      |
+
+* Roadmap
+
+Roadmap:
+- [X] Basic library setup
+- [X] Explanation of the scripts
+- [X] Implementation of NASCTY core logic
+- [X] Example NASCTY_ASCAD program
+- [X] Example NASCTYJL_ASCAD program
+- [ ] Write README.org
+- [ ] Add citations/references
+- [ ] Register package
+- [ ] Example NASCTY program for different data sets.
+- [ ] Write more tests
+* References
+- [1] Schijlen, F.; Wu, L.; Mariot, L. NASCTY: Neuroevolution to Attack
+  Side-Channel Leakages Yielding Convolutional Neural Networks. Mathematics
+  2023, 11, 2616. https://doi.org/10.3390/math11122616
+
+* Citation
+When citing this
+TODO:
+# #+BEGIN_SRC bibtex
+# @software{nascty_jl,
+#   author = {Peter van der Velde},
+#   title = {NASCTY.jl: Neuroevolution for Side-Channel Analysis in Julia},
+#   url = {https://github.com/Peter-van-der-Velde/NASCTY.jl},
+#   year = {2026}
+# }
+# #+END_SRC

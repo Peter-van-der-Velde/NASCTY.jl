@@ -1,6 +1,6 @@
 name = "NASCTY"
 uuid = "c29c32f2-7981-4ec5-983e-5815d80f0b55"
-version = "1.0.0-DEV"
+version = "0.1.0"
 authors = ["Peter van der Velde <p.vandervelde@utwente.nl> and contributors"]
 
 [workspace]

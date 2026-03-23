@@ -262,3 +262,5 @@ function produceoffspring(hyperparameters::HyperParameters, parents::Vector{Geno
 
     return mutatedoffspring .|> offspring -> fixpoolinglayers(hyperparameters, offspring, inputsize)
 end
+
+bestgenomes()

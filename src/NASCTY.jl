@@ -78,6 +78,8 @@ function nascty(hyperparameters::HyperParameters, training_data, validation_data
 		    file["populations"] = populations
         end
     end
+
+    return populations
 end
 
 

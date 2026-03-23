@@ -1,8 +1,5 @@
 import Flux
 
-# include("hyperparameters.jl")
-# include("genome.jl")
-
 function fitnessevaluation(hyperparameters::HyperParameters, genome::Genome, training_data, validation_data, tracelength)
     if genome.loss != Inf32
         return genome.loss

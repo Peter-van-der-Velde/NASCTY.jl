@@ -78,4 +78,9 @@ train_loader = Flux.DataLoader(training_data, batchsize = BATCHSIZE, shuffle = t
 
 validation_data = (D_val, K_val) |> Flux.gpu
 
-NASCTY.nascty(hyperparameters, train_loader, validation_data)
+@info "Starting neural architecture search..."
+generations = NASCTY.nascty(hyperparameters, train_loader, validation_data)
+
+@info "Finished neural architecture search..."
+bestgenomes = generations .|> generation -> argmin(g -> g.loss, generation)
+bestgenome = argmin(g -> g.loss, bestgenomes)
