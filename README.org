@@ -92,9 +92,24 @@ Roadmap:
 - [ ] Example NASCTY program for different data sets.
 - [ ] Write more tests
 * References
-- [1] Schijlen, F.; Wu, L.; Mariot, L. NASCTY: Neuroevolution to Attack
-  Side-Channel Leakages Yielding Convolutional Neural Networks. Mathematics
-  2023, 11, 2616. https://doi.org/10.3390/math11122616
+- [1] Schijlen, F.; Wu, L.; Mariot, L. NASCTY: Neuroevolution to Attack Side-Channel Leakages Yielding Convolutional Neural Networks.
+  Mathematics 2023, 11, 2616. https://doi.org/10.3390/math11122616
+- [2] P. Emmanuel, S. Remi, B. Ryad, C. Eleonora, and D. Cecile, “Study of deep learning techniques for side-channel analysis and introduction to ascad database,”
+  IACR Cryptol. ePrint Arch., pp. 1–45, 2018.
+  [Online]. Available: http://eprint.iacr.org/2018/053
+- [3] L. Wu, G. Perin, and S. Picek, “I choose you: Automated hyperparameter tuning for deep learning-based side-channel analysis,”
+  IEEE Transactions on Emerging Topics in Computing, vol. 12, no. 2, pp. 546–557, 2024.
+  doi: https://doi.org/10.1109/TETC.2022.3218372
+- [4] G. Zaid, L. Bossuet, A. Habrard, and A. Venelli, “Methodology for efficient cnn architectures in profiling attacks,” IACR Transactions on Cryptographic Hardware and Embedded Systems, vol. 2020, no. 1, pp. 1–36, Nov. 2019. doi: https://doi.org/10.13154/tches.v2020.i1.1-36
+- [5] L. Wouters, V. Arribas, B. Gierlichs, and B. Preneel, “Revisiting a methodology for efficient cnn architectures in profiling attacks,”
+  IACR Transactions on Cryptographic Hardware and Embedded Systems, pp. 147–168, 2020.
+  doi: https://doi.org/10.13154/TCHES.V2020.I3.147-168
+- [6] J. Rijsdijk, L. Wu, G. Perin, and S. Picek, “Reinforcement learning for hyperparameter tuning in deep learning-based side-channel analysis,”
+  IACR Transactions on Cryptographic Hardware and Embedded Systems, vol. 2021, no. 3, pp. 677–707, 2021.
+  doi: https://doi.org/10.46586/TCHES.V2021.I3.677-707
+- [7] R. Y. Acharya, F. Ganji, and D. Forte, “Infoneat: Information theory-based neuroevolution of augmenting topologies for side-channel analysis,”
+  2021.
+  doi: https://doi.org/10.48550/arXiv.2105.00117 [cs.CR]
 
 * Citation
 When citing this
