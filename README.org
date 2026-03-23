@@ -14,12 +14,6 @@ Project goals:
 #+CAPTION: A neural architecture search in progress on the ASCAD dataset.
 # TODO: insert gif or image of a search on ASCAD.
 
-* Table of Contents
-:PROPERTIES:
-:UNNUMBERED: t
-:END:
-#+TOC: headlines 2
-
 * Installation
 Requirements:
 - Julia >= 1.12
