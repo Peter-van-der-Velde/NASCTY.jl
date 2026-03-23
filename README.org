@@ -38,7 +38,8 @@ pkg> add https://github.com/Peter-van-der-Velde/NASCTY.jl
 * Usage
 To start a neural architecture search on your side-channel analysis dataset, load your data and initialise the hyperparameters:
 #+BEGIN_SRC julia :eval noeval
-import NASCTY import Flux
+import NASCTY
+import Flux
 
 @info "Setting NASCTY hyperparameters" hyperparameters =
 NASCTY.NASCTYGENOMEHYPERPARAMETERS()
@@ -46,9 +47,9 @@ NASCTY.NASCTYGENOMEHYPERPARAMETERS()
 @info "Starting neural architecture search..." generations =
 NASCTY.nascty(hyperparameters, trainingdataloader, validationdata)
 
-@info "Finished neural architecture search..." bestgenomes = generations .|>
-generation -> argmin(g -> g.loss, generation) bestgenome = argmin(g -> g.loss,
-bestgenomes)
+@info "Finished neural architecture search..."
+bestgenomes = generations .|> generation -> argmin(g -> g.loss, generation)
+bestgenome = argmin(g -> g.loss, bestgenomes)
 
 @info "The best genome found is:" bestgenome
 #+END_SRC
