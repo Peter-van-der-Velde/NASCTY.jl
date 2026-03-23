@@ -2,7 +2,7 @@
 
 [[https://github.com/Peter-van-der-Velde/NASCTY.jl/actions/workflows/CI.yml/badge.svg][Build Status]]
 
-*NASCTY.jl* is a Julia library for breaking cryptographic targets using Side-Channel Analysis (SCA)
+*NASCTY.jl* is a Julia library for breaking cryptographic targets using Side-Channel Analysis (SCA).
 It implements a neural architecture search (NAS) strategy based on a genetic algorithm, tailored for side-channel analysis.
 It is based upon the research: /Neuroevolution to Attack Side-Channel Traces Yielding convolutional neural networks/ (NASCTY) [1].
 
@@ -35,11 +35,11 @@ To start a neural architecture search on your side-channel analysis dataset, loa
 import NASCTY
 import Flux
 
-@info "Setting NASCTY hyperparameters" hyperparameters =
-NASCTY.NASCTYGENOMEHYPERPARAMETERS()
+@info "Setting NASCTY hyperparameters"
+hyperparameters = NASCTY.NASCTYGENOMEHYPERPARAMETERS()
 
-@info "Starting neural architecture search..." generations =
-NASCTY.nascty(hyperparameters, trainingdataloader, validationdata)
+@info "Starting neural architecture search..."
+generations = NASCTY.nascty(hyperparameters, trainingdataloader, validationdata)
 
 @info "Finished neural architecture search..."
 bestgenomes = generations .|> generation -> argmin(g -> g.loss, generation)
