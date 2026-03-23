@@ -1,6 +1,6 @@
 #+TITLE: NASCTY.jl
 
-[[https://github.com/Peter-van-der-Velde/NASCTY.jl/actions/workflows/CI.yml/badge.svg?branch=main][Build Status]]
+[[https://github.com/Peter-van-der-Velde/NASCTY.jl/actions/workflows/CI.yml/badge.svg][Build Status]]
 
 *NASCTY.jl* is a Julia library for breaking cryptographic targets using Side-Channel Analysis (SCA)
 It implements a neural architecture search (NAS) strategy based on a genetic algorithm, tailored for side-channel analysis.
@@ -82,8 +82,8 @@ Roadmap:
 - [X] Implementation of NASCTY core logic
 - [X] Example NASCTY_ASCAD program
 - [X] Example NASCTYJL_ASCAD program
-- [ ] Write README.org
-- [ ] Add citations/references
+- [X] Write README.org
+- [X] Add citations/references
 - [ ] Register package
 - [ ] Example NASCTY program for different data sets.
 - [ ] Write more tests
