@@ -51,10 +51,11 @@ bestgenome = argmin(g -> g.loss, bestgenomes)
 For detailed walkthroughs, please visit the [[file:examples/][examples directory]]
 and its accompanying [[file:examples/README.org][README.org]] for more information.
 
-* How it works
-TODO:
+# * How it works
+# TODO:
 
 * Benchmarks
+The NASCTY.jl has been benchmarked on the fixed-key ASCAD [2] benchmark against some of the other state-of-the-art tools.
 
 #+CAPTION: Required traces to obtain mean key rank 0 ($T_{GE0}$) and model parameter counts on the synchronized fixed-key ASCAD [2] dataset.
 #+NAME: tbl:ascadhyperparameter0
@@ -72,8 +73,9 @@ TODO:
 | NASCTY [1]         | CNN      |   314 | 10 470     |
 | NASCTY.jl†         | MLP      |   150 | 7 953      |
 
-* Roadmap
+# TODO: add the benchmark run results
 
+* Roadmap
 Roadmap:
 - [X] Basic library setup
 - [X] Explanation of the scripts
@@ -85,6 +87,7 @@ Roadmap:
 - [ ] Register package
 - [ ] Example NASCTY program for different data sets.
 - [ ] Write more tests
+
 * References
 - [1] Schijlen, F.; Wu, L.; Mariot, L. NASCTY: Neuroevolution to Attack Side-Channel Leakages Yielding Convolutional Neural Networks.
   Mathematics 2023, 11, 2616. https://doi.org/10.3390/math11122616
@@ -105,9 +108,9 @@ Roadmap:
   2021.
   doi: https://doi.org/10.48550/arXiv.2105.00117 [cs.CR]
 
-* Citation
-When citing this
-TODO:
+# * Citation
+# When citing this
+# TODO:
 # #+BEGIN_SRC bibtex
 # @software{nascty_jl,
 #   author = {Peter van der Velde},
