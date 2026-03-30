@@ -16,7 +16,7 @@ OneHotArrays = "0b1bfda6-eb8a-41d2-88d8-f5af5cad476f"
 ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 
 [compat]
-Dates = "1.11.0"
+Dates = "1.10.3"
 Flux = "0.16.9"
 JLD2 = "0.6.3"
 MLUtils = "0.4.8"
