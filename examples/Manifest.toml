@@ -1,4 +1,4 @@
-julia_version = "1.12.1"
+julia_version = "1.10.3"
 manifest_format = "2.0"
 project_hash = "0da3358053a3903483857576e653758625951a56"
 

@@ -82,6 +82,4 @@ function nascty(hyperparameters::HyperParameters, training_data, validation_data
     return populations
 end
 
-
-
 end
